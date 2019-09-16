@@ -21,6 +21,6 @@ deploy:
   provider: pages
   skip_cleanup: true # To avoid cleanup of the artifact generated during script
   github_token: $GITHUB_TOKEN # Provided as an environment variable in travis
-  local_dir: dist/angular-with-ci-cd # Replace this with your project name
+  local_dir: dist/angular-travis-github-pages # Replace this with your project name
   on:
     branch: master
