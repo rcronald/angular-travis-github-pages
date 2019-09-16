@@ -29,4 +29,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-This repository is based on https://auth0.com/blog/creating-beautiful-apps-with-angular-material/
+This repository is based on the following articles:
+- https://auth0.com/blog/creating-beautiful-apps-with-angular-material/
+- https://levelup.gitconnected.com/angular-6-travis-ci-with-headless-chrome-58fab1b394e1
