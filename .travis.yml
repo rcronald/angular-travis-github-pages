@@ -13,14 +13,33 @@ branches:
 before_script:
   - npm install -g @angular/cli
 
-script:
-  - yarn all_tests
-  - yarn build --prod --base-href $base_href #base_href should be given in travis as an environment variable
+#script:
+#  - yarn all_tests
+#  - yarn build --prod --base-href $base_href #base_href should be given in travis as an environment variable
+
+jobs:
+  include:
+    - stage: build
+      script:
+        - yarn lint
+        - yarn build
+    - stage: test
+      script:
+        - yarn test_headless
+        - yarn e2e_headless
+    - stage: prepare-deploy
+      script:
+        - yarn build --prod --base-href $base_href
 
 deploy:
-  provider: pages
-  skip_cleanup: true # To avoid cleanup of the artifact generated during script
-  github_token: $GITHUB_TOKEN # Provided as an environment variable in travis
-  local_dir: dist/angular-travis-github-pages # Replace this with your project name
-  on:
-    branch: master
+  - provider: releases
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    on:
+      tags: true
+  - provider: pages
+    skip_cleanup: true # To avoid cleanup of the artifact generated during script
+    github_token: $GITHUB_TOKEN # Provided as an environment variable in travis
+    local_dir: dist/angular-travis-github-pages # Replace this with your project name
+    on:
+      branch: master
