@@ -30,16 +30,15 @@ jobs:
     - stage: prepare-deploy
       script:
         - yarn build --prod --base-href $base_href
-
-deploy:
-  - provider: releases
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN
-    on:
-      tags: true
-  - provider: pages
-    skip_cleanup: true # To avoid cleanup of the artifact generated during script
-    github_token: $GITHUB_TOKEN # Provided as an environment variable in travis
-    local_dir: dist/angular-travis-github-pages # Replace this with your project name
-    on:
-      branch: master
+      deploy:
+        - provider: releases
+          skip_cleanup: true
+          github_token: $GITHUB_TOKEN
+          on:
+            tags: true
+        - provider: pages
+          skip_cleanup: true # To avoid cleanup of the artifact generated during script
+          github_token: $GITHUB_TOKEN # Provided as an environment variable in travis
+          local_dir: dist/angular-travis-github-pages # Replace this with your project name
+          on:
+            branch: master
