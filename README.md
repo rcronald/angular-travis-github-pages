@@ -1,4 +1,9 @@
 ![Travis (.org)](https://img.shields.io/travis/rcronald/angular-travis-github-pages)
+<a href="https://scan.coverity.com/projects/rcronald-angular-travis-github-pages">
+  <img alt="Coverity Scan Build Status"
+       src="https://img.shields.io/coverity/scan/19189.svg"/>
+</a>
+
 # AngularTravisGithubPages
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
