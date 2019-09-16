@@ -1,3 +1,4 @@
+![Travis (.org)](https://img.shields.io/travis/rcronald/angular-travis-github-pages)
 # AngularTravisGithubPages
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
