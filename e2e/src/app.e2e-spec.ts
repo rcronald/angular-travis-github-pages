@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to angular-travis-github-pages!');
+    expect(page.getTitleText()).toEqual('Angular Content Management System');
   });
 
   afterEach(async () => {
