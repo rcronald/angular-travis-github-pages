@@ -3,8 +3,14 @@ node_js:
   - "10.16.0"
 sudo: true
 
+dist: trusty # For sonar
+
 addons:
   chrome: stable
+  sonarcloud:
+    organization: "rcronald"
+    token:
+      secure: "yu8GjwccEZpaOUV7c+I5a8sGb4pAPhmufY3sZmVbbieoFoPxjJ1gsbbDwuCMXtjXCC4MIH2YPMaqYfugVJeuLocwVWPQPNsBj0qVDPJbMTbQRqcK8TQt/Iz1H9RBQauWWGFl+UOftF7JvXydjkZGHYfUs5Br09Te58+8C01gsTpiXhmpxWKzr6FtAFDPP/7CEUI6Q3l7YHnzdj4TkiUTe6j4u+ZX1uMTGzt31HKOuhiEdy69NzUkqQHMKY+Dwjxm8byXlt+PwXu5TPfxhFAwy7RloBxVATj3MYh1HmVSzqWt68p2ouDqNtknZ1uc4dRSq3U2cWRFFfW2VOKiw/dmoM0DIaJV1x2vRZ0LSEI7PcDtkSbZEb0gW9M+2ZpYrn5LNnSYoSZU+nUQObG6LdSaFYVNnWxH7qMtARpNO75ZEo49XXfjj6wz/S5JpQ6EBouLbTMAqz0Xe0nkRr8jgwCiAIO5C27r8tCrLBGJyWOxeFddkk3epSAPIR2/iJtcbTOpTW4EZxsuAX2ntp70YWE18xK/VQ3OBfg54XMRDNltoW60HwN4UAfrSypBFRu4PLSPb3HIHq/Mc6PnOgmODj+77MkU4LlaQWyMEyRDb8ooL79IsgU7xsKTiDX6S6uYlloUybk13bdGQM/P1t0dH6R+ZuwoPs1K/G8EvZsRsEFF64k="
 
 branches:
   only:
@@ -23,6 +29,7 @@ jobs:
       script:
         - yarn lint
         - yarn build
+        - sonar-scanner
     - stage: test
       script:
         - yarn test_headless
