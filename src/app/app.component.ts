@@ -8,7 +8,5 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'angular-travis-github-pages';
-  constructor(public auth: AuthService){
-    
-  }
+  constructor(public auth: AuthService) {}
 }

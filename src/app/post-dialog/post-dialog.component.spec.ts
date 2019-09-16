@@ -14,16 +14,9 @@ import { FormsModule } from '@angular/forms';
 
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
-import { MatDialog } from '@angular/material/dialog';
-import { OverlayContainer } from '@angular/cdk/overlay';
-import { inject } from '@angular/core';
-
 xdescribe('PostDialogComponent', () => {
   let component: PostDialogComponent;
   let fixture: ComponentFixture<PostDialogComponent>;
-
-  let dialog: MatDialog;
-  let overlayContainer: OverlayContainer;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -39,7 +32,7 @@ xdescribe('PostDialogComponent', () => {
         MatInputModule,
         MatSelectModule,
         BrowserAnimationsModule,
-        FormsModule 
+        FormsModule
       ],
       declarations: [ PostDialogComponent ]
     })

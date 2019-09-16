@@ -8,8 +8,8 @@ import {Router} from '@angular/router';
 export class AuthService {
 
 
-  accessToken: String;
-  expiresAt: Number;
+  accessToken: string;
+  expiresAt: number;
 
   constructor(public router: Router) {}
 
@@ -31,6 +31,6 @@ export class AuthService {
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
     // Access Token's expiry time
-    return true
+    return true;
   }
 }

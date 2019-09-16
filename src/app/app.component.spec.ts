@@ -5,7 +5,7 @@ import { DataService } from './data/data.service';
 import { AuthService } from './auth.service';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatSidenavModule, 
+import { MatSidenavModule,
          MatIconModule,
          MatListModule,
          MatToolbarModule } from '@angular/material';

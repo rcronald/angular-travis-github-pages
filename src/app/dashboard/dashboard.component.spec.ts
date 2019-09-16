@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material';
 
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { 
+import {
   MatIconModule,
   MatCardModule,
   MatTableModule,
@@ -25,13 +25,13 @@ describe('DashboardComponent', () => {
         DataService,
       ],
       imports: [
-        MatIconModule, 
+        MatIconModule,
         MatCardModule,
         MatTableModule,
         RouterTestingModule,
         MatDialogModule ],
       declarations: [ DashboardComponent ]
-    })  
+    })
     .compileComponents().then(() => {
       fixture = TestBed.createComponent(DashboardComponent);
       component = fixture.componentInstance;
@@ -40,7 +40,8 @@ describe('DashboardComponent', () => {
   }));
 
 
-  it('should create', async(inject([AuthService,MatDialog,DataService], (auth: AuthService, dialog: MatDialog, dataService: DataService) => {
+  it('should create', async(inject([AuthService, MatDialog, DataService],
+    (auth: AuthService, dialog: MatDialog, dataService: DataService) => {
     expect(component).toBeTruthy();
   })));
 });
