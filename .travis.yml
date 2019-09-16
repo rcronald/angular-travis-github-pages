@@ -3,7 +3,7 @@ node_js:
   - "10.16.0"
 sudo: true
 
-dist: trusty # For sonar
+#dist: trusty # For sonar
 
 addons:
   chrome: stable
