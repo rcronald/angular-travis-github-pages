@@ -1,35 +1,46 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, inject, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { DataService } from './data/data.service';
+import { AuthService } from './auth.service';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatSidenavModule, 
+         MatIconModule,
+         MatListModule,
+         MatToolbarModule } from '@angular/material';
 
 describe('AppComponent', () => {
+
+  let fixture: ComponentFixture<AppComponent>;
+  let appComponent: AppComponent;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      providers: [
+        DataService,
+        AuthService
+      ],
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        MatToolbarModule,
+        BrowserAnimationsModule
       ],
       declarations: [
         AppComponent
       ],
-    }).compileComponents();
+    }).compileComponents().then(() => {
+      fixture = TestBed.createComponent(AppComponent);
+      appComponent = fixture.componentInstance;
+      fixture.detectChanges();
+    });
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
+  it('should create the app', async(() => {
+    expect(appComponent).toBeTruthy();
+  }));
 
-  it(`should have as title 'angular-travis-github-pages'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('angular-travis-github-pages');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-travis-github-pages!');
-  });
 });

@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+  - "10.16.0"
+sudo: true
+
+addons:
+  chrome: stable
+
+branches:
+  only:
+    - master
+
+before_script:
+  - npm install -g @angular/cli
+
+script:
+  - yarn all_tests
+  - yarn build --prod --base-href $base_href #base_href should be given in travis as an environment variable
+
+deploy:
+  provider: pages
+  skip_cleanup: true # To avoid cleanup of the artifact generated during script
+  github_token: $GITHUB_TOKEN # Provided as an environment variable in travis
+  local_dir: dist/angular-with-ci-cd # Replace this with your project name
+  on:
+    branch: master
